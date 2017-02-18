@@ -6,6 +6,6 @@ target 'Street Smartz' do
   use_frameworks!
 
   # Pods for Street Smartz
-  pod "CameraEngine"
+  
 
 end

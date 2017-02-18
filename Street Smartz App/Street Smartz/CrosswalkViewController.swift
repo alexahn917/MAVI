@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class CrosswalkViewController: UIViewController {
     
@@ -17,6 +18,10 @@ class CrosswalkViewController: UIViewController {
     
     struct Text {
         static let processing = "Processing image..."
+    }
+    
+    struct URL {
+        static let uploadImage = "http://127.0.0.1:8000/image/"
     }
     
     // MARK - Outlets
@@ -98,7 +103,18 @@ class CrosswalkViewController: UIViewController {
         }
 
     }
+    
+    func uploadImage(image: UIImage?) {
+        
+//        let str = "Hello, playground"
+//        guard let base64Str = str.base64Encoded() else { return }
 
+        guard let image = image else { return }
+        guard let imageData = UIImagePNGRepresentation(image) else { return }
+        Alamofire.upload(imageData, to: "http://httpbin.org/post").responseJSON { response in
+            debugPrint(response)
+        }
+    }
 }
 
 extension CrosswalkViewController: AVCapturePhotoCaptureDelegate {
@@ -109,26 +125,27 @@ extension CrosswalkViewController: AVCapturePhotoCaptureDelegate {
         if let sampleBuffer = photoSampleBuffer, let previewBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
             
             //animate flash 
-//            if let wnd = self.view{
-//                
-//                var v = UIView(frame: wnd.bounds)
-//                v.backgroundColor = UIColor.red()
-//                v.alpha = 1
-//                
-//                wnd.addSubview(v)
-//                UIView.animate(withDuration: 1, animations: { 
-//                    v.alpha = 0
-//                }, completion: {(finished:Bool) in
-//                    v.removeFromSuperview()
-//                })
-//            }
+            if let wnd = self.view {
+
+                let v = UIView(frame: wnd.bounds)
+                v.backgroundColor = UIColor.white
+                v.alpha = 1
+                
+                wnd.addSubview(v)
+                UIView.animate(withDuration: 1, animations: { 
+                    v.alpha = 0
+                }, completion: {(finished:Bool) in
+                    v.removeFromSuperview()
+                })
+            }
             
             capturedImage.isHidden = false
             capturedImage.image = UIImage(data: dataImage)
             captureSession.stopRunning()
             previewLayer.removeFromSuperlayer()
-            
             textLabel.text = Text.processing
+            
+            uploadImage(image: capturedImage.image)
         }
     }
 }
