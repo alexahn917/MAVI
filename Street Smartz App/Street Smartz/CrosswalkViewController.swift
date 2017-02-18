@@ -106,24 +106,20 @@ class CrosswalkViewController: UIViewController {
     
     func uploadImage(image: UIImage?) {
         
-//        let str = "Hello, playground"
-//        guard let base64Str = str.base64Encoded() else { return }
-
+        //compress
         guard let image = image else { return }
-        guard let imageData = UIImagePNGRepresentation(image) else { return }
-//        Alamofire.upload(imageData, to: "http://httpbin.org/post").responseJSON { response in
-//            debugPrint(response)
-//        }
-        Alamofire.request("127.0.0.1:8002/image/").responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-            }
+        let jpegCompressionQuality: CGFloat = 0.9 // Set this to whatever suits your purpose
+        guard let base64String = UIImageJPEGRepresentation(image, jpegCompressionQuality)?.base64EncodedString() else { return }
+        
+        //send to server
+        let imageData = ["img": base64String]
+        Alamofire.request("http://10.189.27.71:81/", method: .post, parameters: imageData).responseJSON { response in
+                
+                if let json = response.result.value {
+                   print(json)
+                }
         }
+
        
     }
 }
