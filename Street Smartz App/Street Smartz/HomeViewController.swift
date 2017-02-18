@@ -9,7 +9,7 @@
 import UIKit
 import Speech
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     // MARK - Const
     /************************************************************/
@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     struct Text {
         static let deflt = "Hey there"
         static let listening = "What's up?"
+        static let voiceListening = "I am listening"
+        static let voicedeflt = "Hey there, Frank here"
         
     }
     
@@ -49,6 +51,7 @@ class HomeViewController: UIViewController {
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    fileprivate var wantToRecord = false;
 
     
     // MARK - Life cycle
@@ -63,6 +66,8 @@ class HomeViewController: UIViewController {
         //gesture
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
         view.addGestureRecognizer(tapGesture)
+        
+        textToSpeech(answer: Text.voicedeflt)
     }
     
     
@@ -84,11 +89,9 @@ class HomeViewController: UIViewController {
                 textLabel.text = Text.deflt
             }
         } else {
-            startRecording()
-            mic.isHidden = true
-            activityIndicator.isHidden = false
-            activityIndicator.startAnimating()
-            print("Started Recording")
+            print("about to record")
+            wantToRecord = true
+            textToSpeech(answer: Text.voiceListening)
         }
     }
     
@@ -108,12 +111,27 @@ class HomeViewController: UIViewController {
     
     
     func textToSpeech(answer:String) {
-        print("button pressed")
+        print("textToSpeech")
         let utterance = AVSpeechUtterance(string: answer)
         utterance.rate = 0.55
         
         let synthesizer = AVSpeechSynthesizer()
+        synthesizer.delegate = self
         synthesizer.speak(utterance)
+        print("textToSpeech finished")
+
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        print(wantToRecord)
+        if (wantToRecord) {
+            wantToRecord = false
+            startRecording()
+            mic.isHidden = true
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            print("Started Recording")
+        }
     }
 
     
