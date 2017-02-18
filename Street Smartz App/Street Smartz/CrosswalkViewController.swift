@@ -111,9 +111,20 @@ class CrosswalkViewController: UIViewController {
 
         guard let image = image else { return }
         guard let imageData = UIImagePNGRepresentation(image) else { return }
-        Alamofire.upload(imageData, to: "http://httpbin.org/post").responseJSON { response in
-            debugPrint(response)
+//        Alamofire.upload(imageData, to: "http://httpbin.org/post").responseJSON { response in
+//            debugPrint(response)
+//        }
+        Alamofire.request("127.0.0.1:8002/image/").responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
         }
+       
     }
 }
 

@@ -11,6 +11,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .forms import UploadFileForm
+from django.http import JsonResponse
 
 class SnippetList(APIView):
 	"""
@@ -27,14 +28,6 @@ class SnippetList(APIView):
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class Upload_File(APIView):
-	def get(self, request, format = None):
-		form = UploadFileForm(request.POST, request.FILES)
-		if form.is_valid():
-			data = reqeust_file(request.FILES['file'])
-            return Response('Success')
-        return Response('Fail')
 
 class SnippetDetail(APIView):
 	"""
@@ -63,3 +56,11 @@ class SnippetDetail(APIView):
 		snippet = self.get_object(pk)
 		snippet.delete()
 		return Response(status=status.HTTP_204_NO_CONTENT)
+
+class Upload_File(APIView):
+	def get(self, request, format = None):
+		form = UploadFileForm(request.POST, request.FILES)
+		if form.is_valid():
+			data = reqeust_file(request.FILES['file'])
+			return JsonResponse({'1' : '2'})
+		return JsonResponse({'3' : '4'})

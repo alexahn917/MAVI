@@ -11,12 +11,9 @@
 		56B4CA811E58CD380070CDEE /* CrosswalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B4CA801E58CD380070CDEE /* CrosswalkViewController.swift */; };
 		56B4CA831E58E7070070CDEE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B4CA821E58E7070070CDEE /* Extensions.swift */; };
 		56E08E381E5828B100A8925C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E371E5828B100A8925C /* AppDelegate.swift */; };
-		56E08E3A1E5828B100A8925C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E391E5828B100A8925C /* ViewController.swift */; };
 		56E08E3D1E5828B100A8925C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E08E3B1E5828B100A8925C /* Main.storyboard */; };
 		56E08E3F1E5828B100A8925C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E08E3E1E5828B100A8925C /* Assets.xcassets */; };
 		56E08E421E5828B100A8925C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E08E401E5828B100A8925C /* LaunchScreen.storyboard */; };
-		56E08E4A1E5838E700A8925C /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E491E5838E700A8925C /* CameraManager.swift */; };
-		56E08E4C1E5839EB00A8925C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E4B1E5839EB00A8925C /* CameraViewController.swift */; };
 		8489DA8A6CEACEDCB869904C /* Pods_Street_Smartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7E4FEB5CBE3EAB3BCA9A37 /* Pods_Street_Smartz.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,13 +23,10 @@
 		56B4CA821E58E7070070CDEE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		56E08E341E5828B100A8925C /* Street Smartz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Street Smartz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E08E371E5828B100A8925C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56E08E391E5828B100A8925C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		56E08E3C1E5828B100A8925C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56E08E3E1E5828B100A8925C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56E08E411E5828B100A8925C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56E08E431E5828B100A8925C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56E08E491E5838E700A8925C /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
-		56E08E4B1E5839EB00A8925C /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		CB7E4FEB5CBE3EAB3BCA9A37 /* Pods_Street_Smartz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Street_Smartz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA55FFEDA483055E8E85150 /* Pods-Street Smartz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Street Smartz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Street Smartz/Pods-Street Smartz.debug.xcconfig"; sourceTree = "<group>"; };
 		D609755336FEF13C095B2612 /* Pods-Street Smartz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Street Smartz.release.xcconfig"; path = "Pods/Target Support Files/Pods-Street Smartz/Pods-Street Smartz.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,13 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				56E08E371E5828B100A8925C /* AppDelegate.swift */,
-				56E08E391E5828B100A8925C /* ViewController.swift */,
 				56E08E3B1E5828B100A8925C /* Main.storyboard */,
 				56E08E3E1E5828B100A8925C /* Assets.xcassets */,
 				56E08E401E5828B100A8925C /* LaunchScreen.storyboard */,
 				56E08E431E5828B100A8925C /* Info.plist */,
-				56E08E491E5838E700A8925C /* CameraManager.swift */,
-				56E08E4B1E5839EB00A8925C /* CameraViewController.swift */,
 				56B4CA7E1E58B2010070CDEE /* HomeViewController.swift */,
 				56B4CA801E58CD380070CDEE /* CrosswalkViewController.swift */,
 				56B4CA821E58E7070070CDEE /* Extensions.swift */,
@@ -228,9 +219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56B4CA811E58CD380070CDEE /* CrosswalkViewController.swift in Sources */,
-				56E08E3A1E5828B100A8925C /* ViewController.swift in Sources */,
-				56E08E4C1E5839EB00A8925C /* CameraViewController.swift in Sources */,
-				56E08E4A1E5838E700A8925C /* CameraManager.swift in Sources */,
 				56E08E381E5828B100A8925C /* AppDelegate.swift in Sources */,
 				56B4CA7F1E58B2010070CDEE /* HomeViewController.swift in Sources */,
 				56B4CA831E58E7070070CDEE /* Extensions.swift in Sources */,
