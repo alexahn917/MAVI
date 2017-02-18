@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vKU-2E-A1B">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -54,12 +54,20 @@
                             <constraint firstItem="f9w-gn-vrY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kvx-Pc-fLv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="c2D-UI-yiU">
+                        <barButtonItem key="rightBarButtonItem" title="Camera" id="tpC-Cx-3qH">
+                            <connections>
+                                <segue destination="qhY-Zq-fKc" kind="show" id="Tmh-0T-2YP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="speechButton" destination="RUX-ev-Ek7" id="pFl-la-4nU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="c50-1I-zhJ">
@@ -74,40 +82,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COf-C6-SuY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0E-A4-Tx8">
-                                        <rect key="frame" x="0.0" y="617" width="375" height="30"/>
-                                        <state key="normal" title="Capture"/>
-                                        <connections>
-                                            <action selector="capturePressed:" destination="qhY-Zq-fKc" eventType="touchUpInside" id="4A1-2R-SHc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="64" width="375" height="169"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="M0E-A4-Tx8" secondAttribute="bottom" id="K3W-JK-L9L"/>
-                                    <constraint firstAttribute="trailing" secondItem="M0E-A4-Tx8" secondAttribute="trailing" id="U1Z-XL-Rwg"/>
-                                    <constraint firstItem="M0E-A4-Tx8" firstAttribute="leading" secondItem="COf-C6-SuY" secondAttribute="leading" id="zpr-VF-lR3"/>
+                                    <constraint firstAttribute="height" constant="169" id="XPM-9S-6x8"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0E-A4-Tx8">
+                                <rect key="frame" x="0.0" y="233" width="375" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="TKF-ZT-ypu"/>
+                                </constraints>
+                                <state key="normal" title="Capture"/>
+                                <connections>
+                                    <action selector="capturePressed:" destination="qhY-Zq-fKc" eventType="touchUpInside" id="4A1-2R-SHc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Pn-c8-cbX">
+                                <rect key="frame" x="0.0" y="539" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="UsH-x5-6sS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Mzc-rE-QTe" firstAttribute="top" secondItem="COf-C6-SuY" secondAttribute="bottom" id="O63-2O-Lmn"/>
-                            <constraint firstAttribute="trailing" secondItem="COf-C6-SuY" secondAttribute="trailing" id="eXt-iU-SAJ"/>
-                            <constraint firstItem="COf-C6-SuY" firstAttribute="leading" secondItem="KYA-Qq-Ixs" secondAttribute="leading" id="h0u-zc-ToN"/>
-                            <constraint firstItem="COf-C6-SuY" firstAttribute="top" secondItem="2sA-hE-v4r" secondAttribute="bottom" id="uFQ-kb-40s"/>
+                            <constraint firstAttribute="trailing" secondItem="COf-C6-SuY" secondAttribute="trailing" id="MwC-p2-Kzo"/>
+                            <constraint firstItem="Mzc-rE-QTe" firstAttribute="top" secondItem="9Pn-c8-cbX" secondAttribute="bottom" id="UgV-hI-3AE"/>
+                            <constraint firstItem="COf-C6-SuY" firstAttribute="leading" secondItem="KYA-Qq-Ixs" secondAttribute="leading" id="eWS-3e-9E8"/>
+                            <constraint firstItem="9Pn-c8-cbX" firstAttribute="leading" secondItem="KYA-Qq-Ixs" secondAttribute="leading" id="iKg-N4-HqA"/>
+                            <constraint firstItem="COf-C6-SuY" firstAttribute="top" secondItem="2sA-hE-v4r" secondAttribute="bottom" id="lXE-Dc-Uxz"/>
+                            <constraint firstItem="M0E-A4-Tx8" firstAttribute="leading" secondItem="KYA-Qq-Ixs" secondAttribute="leading" id="n5q-Ba-bQk"/>
+                            <constraint firstAttribute="trailing" secondItem="M0E-A4-Tx8" secondAttribute="trailing" id="ogV-TL-x4u"/>
+                            <constraint firstAttribute="trailing" secondItem="9Pn-c8-cbX" secondAttribute="trailing" id="riM-Ib-cPe"/>
+                            <constraint firstItem="M0E-A4-Tx8" firstAttribute="top" secondItem="COf-C6-SuY" secondAttribute="bottom" id="usF-Te-4WL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="COf-C6-SuY" id="Ui5-mH-XJu"/>
                         <outlet property="captureButton" destination="M0E-A4-Tx8" id="YHs-dK-IoZ"/>
+                        <outlet property="capturedImage" destination="9Pn-c8-cbX" id="iow-9h-Lvj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4e-ql-ukZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="104"/>
+            <point key="canvasLocation" x="1896.8" y="123.68815592203899"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4SM-Ec-mk2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vKU-2E-A1B" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IxH-Fc-82A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="A3t-BW-2iZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fq8-Th-gnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="124"/>
         </scene>
     </scenes>
 </document>
