@@ -1,0 +1,6 @@
+framework module Pods_Street_Smartz {
+  umbrella header "Pods-Street Smartz-umbrella.h"
+
+  export *
+  module * { export * }
+}

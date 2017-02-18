@@ -15,6 +15,7 @@
 		56E08E4A1E5838E700A8925C /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E491E5838E700A8925C /* CameraManager.swift */; };
 		56E08E4C1E5839EB00A8925C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E4B1E5839EB00A8925C /* CameraViewController.swift */; };
 		56E08E4E1E58403100A8925C /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E4D1E58403100A8925C /* SpeechManager.swift */; };
+		8489DA8A6CEACEDCB869904C /* Pods_Street_Smartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7E4FEB5CBE3EAB3BCA9A37 /* Pods_Street_Smartz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		56E08E491E5838E700A8925C /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		56E08E4B1E5839EB00A8925C /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		56E08E4D1E58403100A8925C /* SpeechManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		CB7E4FEB5CBE3EAB3BCA9A37 /* Pods_Street_Smartz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Street_Smartz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA55FFEDA483055E8E85150 /* Pods-Street Smartz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Street Smartz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Street Smartz/Pods-Street Smartz.debug.xcconfig"; sourceTree = "<group>"; };
+		D609755336FEF13C095B2612 /* Pods-Street Smartz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Street Smartz.release.xcconfig"; path = "Pods/Target Support Files/Pods-Street Smartz/Pods-Street Smartz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8489DA8A6CEACEDCB869904C /* Pods_Street_Smartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				56E08E361E5828B100A8925C /* Street Smartz */,
 				56E08E351E5828B100A8925C /* Products */,
+				EFBA49C5DBD941889A194DAC /* Pods */,
+				5E4C93D14D00C57DA9EAF847 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,23 @@
 			path = "Street Smartz";
 			sourceTree = "<group>";
 		};
+		5E4C93D14D00C57DA9EAF847 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB7E4FEB5CBE3EAB3BCA9A37 /* Pods_Street_Smartz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFBA49C5DBD941889A194DAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBA55FFEDA483055E8E85150 /* Pods-Street Smartz.debug.xcconfig */,
+				D609755336FEF13C095B2612 /* Pods-Street Smartz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56E08E461E5828B100A8925C /* Build configuration list for PBXNativeTarget "Street Smartz" */;
 			buildPhases = (
+				898114BDA62EC9ADFF78B926 /* [CP] Check Pods Manifest.lock */,
 				56E08E301E5828B000A8925C /* Sources */,
 				56E08E311E5828B000A8925C /* Frameworks */,
 				56E08E321E5828B000A8925C /* Resources */,
+				D9CDF70E907FFBF8EFE1B622 /* [CP] Embed Pods Frameworks */,
+				968A1B378BC7D8967D3E6544 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,6 +167,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		898114BDA62EC9ADFF78B926 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		968A1B378BC7D8967D3E6544 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Street Smartz/Pods-Street Smartz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9CDF70E907FFBF8EFE1B622 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Street Smartz/Pods-Street Smartz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		56E08E301E5828B000A8925C /* Sources */ = {
@@ -271,6 +346,7 @@
 		};
 		56E08E471E5828B100A8925C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBA55FFEDA483055E8E85150 /* Pods-Street Smartz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8RGYHJQ88C;
@@ -285,6 +361,7 @@
 		};
 		56E08E481E5828B100A8925C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D609755336FEF13C095B2612 /* Pods-Street Smartz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8RGYHJQ88C;

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -67,33 +66,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09i-dm-LcH">
-                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COf-C6-SuY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0E-A4-Tx8">
+                                        <rect key="frame" x="0.0" y="617" width="375" height="30"/>
+                                        <state key="normal" title="Capture"/>
+                                        <connections>
+                                            <action selector="capturePressed:" destination="qhY-Zq-fKc" eventType="touchUpInside" id="4A1-2R-SHc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="bOc-wl-X9x"/>
+                                    <constraint firstAttribute="bottom" secondItem="M0E-A4-Tx8" secondAttribute="bottom" id="K3W-JK-L9L"/>
+                                    <constraint firstAttribute="trailing" secondItem="M0E-A4-Tx8" secondAttribute="trailing" id="U1Z-XL-Rwg"/>
+                                    <constraint firstItem="M0E-A4-Tx8" firstAttribute="leading" secondItem="COf-C6-SuY" secondAttribute="leading" id="zpr-VF-lR3"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2y-dF-esP">
-                                <rect key="frame" x="16" y="20" width="343" height="30"/>
-                                <state key="normal" title="Capture"/>
-                                <connections>
-                                    <action selector="capturePressed:" destination="qhY-Zq-fKc" eventType="touchUpInside" id="GQa-Pw-sB6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="L2y-dF-esP" secondAttribute="trailing" id="Nc1-R4-Ge7"/>
-                            <constraint firstItem="L2y-dF-esP" firstAttribute="leading" secondItem="KYA-Qq-Ixs" secondAttribute="leadingMargin" id="aw6-Vz-stL"/>
-                            <constraint firstItem="L2y-dF-esP" firstAttribute="top" secondItem="2sA-hE-v4r" secondAttribute="bottom" id="euT-ed-F32"/>
-                            <constraint firstAttribute="trailing" secondItem="09i-dm-LcH" secondAttribute="trailing" id="nnY-Z7-wG9"/>
-                            <constraint firstItem="09i-dm-LcH" firstAttribute="leading" secondItem="KYA-Qq-Ixs" secondAttribute="leading" id="sVw-b7-qUh"/>
-                            <constraint firstItem="Mzc-rE-QTe" firstAttribute="top" secondItem="09i-dm-LcH" secondAttribute="bottom" id="wzL-DJ-7y0"/>
+                            <constraint firstItem="Mzc-rE-QTe" firstAttribute="top" secondItem="COf-C6-SuY" secondAttribute="bottom" id="O63-2O-Lmn"/>
+                            <constraint firstAttribute="trailing" secondItem="COf-C6-SuY" secondAttribute="trailing" id="eXt-iU-SAJ"/>
+                            <constraint firstItem="COf-C6-SuY" firstAttribute="leading" secondItem="KYA-Qq-Ixs" secondAttribute="leading" id="h0u-zc-ToN"/>
+                            <constraint firstItem="COf-C6-SuY" firstAttribute="top" secondItem="2sA-hE-v4r" secondAttribute="bottom" id="uFQ-kb-40s"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="previewImage" destination="09i-dm-LcH" id="BoM-e0-P12"/>
+                        <outlet property="cameraView" destination="COf-C6-SuY" id="Ui5-mH-XJu"/>
+                        <outlet property="captureButton" destination="M0E-A4-Tx8" id="YHs-dK-IoZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4e-ql-ukZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
