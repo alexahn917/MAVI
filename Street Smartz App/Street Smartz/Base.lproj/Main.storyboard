@@ -170,12 +170,12 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <view opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPe-33-yHQ">
+                            <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPe-33-yHQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="G2k-d9-ihn">
-                                <rect key="frame" x="37" y="142" width="300" height="384"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="G2k-d9-ihn">
+                                <rect key="frame" x="37" y="142" width="300" height="383.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey there" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkL-TP-IOM">
                                         <rect key="frame" x="91.5" y="0.0" width="117" height="33.5"/>
@@ -234,11 +234,76 @@
                         <outlet property="activityIndicator" destination="yDZ-Ge-dIu" id="b1t-1l-SaR"/>
                         <outlet property="mic" destination="squ-SJ-jSp" id="XQe-Hc-hy3"/>
                         <outlet property="textLabel" destination="kkL-TP-IOM" id="erS-wY-FaL"/>
+                        <segue destination="wM4-ZS-L5F" kind="presentation" identifier="show_crosswalk" id="jgc-zz-THE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3p-2e-soL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="301.60000000000002" y="820.83958020989508"/>
+        </scene>
+        <!--Crosswalk View Controller-->
+        <scene sceneID="zF1-ly-bkg">
+            <objects>
+                <viewController id="wM4-ZS-L5F" customClass="CrosswalkViewController" customModule="Street_Smartz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TWL-Ew-ga2"/>
+                        <viewControllerLayoutGuide type="bottom" id="SH4-MS-xPe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v5F-s2-Qi8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHV-4V-H3J">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ku4-up-kUs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPr-fW-XmA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capturing image in 3...2...1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="597-ql-OLx">
+                                        <rect key="frame" x="16" y="8" width="343" height="84"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="597-ql-OLx" firstAttribute="top" secondItem="hPr-fW-XmA" secondAttribute="topMargin" id="2Lq-uo-jdt"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="597-ql-OLx" secondAttribute="trailing" constant="8" id="Gqe-OQ-cid"/>
+                                    <constraint firstItem="597-ql-OLx" firstAttribute="leading" secondItem="hPr-fW-XmA" secondAttribute="leadingMargin" constant="8" id="Wlc-sW-ocr"/>
+                                    <constraint firstAttribute="height" constant="100" id="teJ-2s-aZ8"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="597-ql-OLx" secondAttribute="bottom" id="uf4-go-Zbg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BHV-4V-H3J" firstAttribute="leading" secondItem="v5F-s2-Qi8" secondAttribute="leading" id="6qU-A2-799"/>
+                            <constraint firstAttribute="trailing" secondItem="hPr-fW-XmA" secondAttribute="trailing" id="EZK-1p-T8q"/>
+                            <constraint firstAttribute="trailing" secondItem="BHV-4V-H3J" secondAttribute="trailing" id="HUU-zz-ypg"/>
+                            <constraint firstItem="ku4-up-kUs" firstAttribute="top" secondItem="v5F-s2-Qi8" secondAttribute="topMargin" id="JpU-yr-gYY"/>
+                            <constraint firstItem="SH4-MS-xPe" firstAttribute="top" secondItem="BHV-4V-H3J" secondAttribute="bottom" id="Qlg-Qq-rYn"/>
+                            <constraint firstItem="ku4-up-kUs" firstAttribute="leading" secondItem="v5F-s2-Qi8" secondAttribute="leading" id="cSe-e3-h2H"/>
+                            <constraint firstItem="BHV-4V-H3J" firstAttribute="top" secondItem="v5F-s2-Qi8" secondAttribute="topMargin" id="ceH-y1-UqJ"/>
+                            <constraint firstItem="hPr-fW-XmA" firstAttribute="leading" secondItem="v5F-s2-Qi8" secondAttribute="leading" id="gYT-Ap-LYV"/>
+                            <constraint firstAttribute="trailing" secondItem="ku4-up-kUs" secondAttribute="trailing" id="lGn-No-fY6"/>
+                            <constraint firstItem="hPr-fW-XmA" firstAttribute="top" secondItem="v5F-s2-Qi8" secondAttribute="topMargin" id="paM-D5-GcM"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ku4-up-kUs" secondAttribute="bottom" id="rYR-lx-3Ui"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="capturedImage" destination="ku4-up-kUs" id="sqB-es-vWP"/>
+                        <outlet property="imagePreview" destination="BHV-4V-H3J" id="adJ-bs-3Z0"/>
+                        <outlet property="textLabel" destination="597-ql-OLx" id="IIF-LQ-Irn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzC-Uh-mvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="821"/>
         </scene>
     </scenes>
     <resources>

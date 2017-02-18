@@ -20,6 +20,11 @@ class HomeViewController: UIViewController {
         
     }
     
+    struct Storyboard {
+        static let showCrosswalk = "show_crosswalk"
+        
+    }
+    
     
     // MARK - Outlets
     /************************************************************/
@@ -44,7 +49,7 @@ class HomeViewController: UIViewController {
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
-    
+
     
     // MARK - Life cycle
     /************************************************************/
@@ -150,6 +155,7 @@ class HomeViewController: UIViewController {
             if result != nil {
                 DispatchQueue.main.async {
                     strongSelf.textLabel.text = result?.bestTranscription.formattedString
+                    strongSelf.parseSpeech(str: result?.bestTranscription.formattedString)
                 }
                 isFinal = (result?.isFinal)!
             }
@@ -177,6 +183,13 @@ class HomeViewController: UIViewController {
         }
         
         textLabel.text = Text.listening
+    }
+    
+    func parseSpeech(str: String?) {
+        if (str?.range(of: "cross") != nil && str?.range(of: "street") != nil) {
+            performSegue(withIdentifier: Storyboard.showCrosswalk, sender: self)
+        }
+
     }
 
 }

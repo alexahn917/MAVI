@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56B4CA7F1E58B2010070CDEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B4CA7E1E58B2010070CDEE /* HomeViewController.swift */; };
+		56B4CA811E58CD380070CDEE /* CrosswalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B4CA801E58CD380070CDEE /* CrosswalkViewController.swift */; };
 		56E08E381E5828B100A8925C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E371E5828B100A8925C /* AppDelegate.swift */; };
 		56E08E3A1E5828B100A8925C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E08E391E5828B100A8925C /* ViewController.swift */; };
 		56E08E3D1E5828B100A8925C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E08E3B1E5828B100A8925C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		56B4CA7E1E58B2010070CDEE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		56B4CA801E58CD380070CDEE /* CrosswalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrosswalkViewController.swift; sourceTree = "<group>"; };
 		56E08E341E5828B100A8925C /* Street Smartz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Street Smartz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E08E371E5828B100A8925C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56E08E391E5828B100A8925C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				56E08E491E5838E700A8925C /* CameraManager.swift */,
 				56E08E4B1E5839EB00A8925C /* CameraViewController.swift */,
 				56B4CA7E1E58B2010070CDEE /* HomeViewController.swift */,
+				56B4CA801E58CD380070CDEE /* CrosswalkViewController.swift */,
 			);
 			path = "Street Smartz";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B4CA811E58CD380070CDEE /* CrosswalkViewController.swift in Sources */,
 				56E08E3A1E5828B100A8925C /* ViewController.swift in Sources */,
 				56E08E4C1E5839EB00A8925C /* CameraViewController.swift in Sources */,
 				56E08E4A1E5838E700A8925C /* CameraManager.swift in Sources */,
