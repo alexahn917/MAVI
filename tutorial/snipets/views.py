@@ -10,7 +10,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
- 
+from .forms import UploadFileForm
 
 class SnippetList(APIView):
 	"""
@@ -29,11 +29,12 @@ class SnippetList(APIView):
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class Upload_File(APIView):
-	def post(self, request, format = None):
+	def get(self, request, format = None):
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
 			data = reqeust_file(request.FILES['file'])
-			return Response(True)
+			return Response('success')
+		return Response('Fail')
 
 class SnippetDetail(APIView):
 	"""
