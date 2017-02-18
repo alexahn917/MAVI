@@ -8,6 +8,7 @@
 
 import UIKit
 import Speech
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -126,6 +127,20 @@ class ViewController: UIViewController {
         }
         
         print("Say something, I'm listening!")
+    }
+    
+    
+    @IBAction func textToSpeechButton(_ sender: Any) {
+        textToSpeech(answer:"Yes, it is safe to cross the street!");
+    }
+    
+    func textToSpeech(answer:String) {
+        print("button pressed")
+        let utterance = AVSpeechUtterance(string: answer)
+        utterance.rate = 0.55
+        
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
     }
 
 
