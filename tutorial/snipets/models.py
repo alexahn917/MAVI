@@ -23,3 +23,8 @@ class Snippet(models.Model):
     class Meta:
         ordering = ('created',)
 
+class Post(models.Model):
+	title = models.CharField(max_length = 120)
+	image = models.FileField(null = True, blank = True)
+	content = models.TextField()
+
