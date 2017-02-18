@@ -29,7 +29,7 @@ class SnippetList(APIView):
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class Upload_File(APIView):
-	def post(self, request, format = None):
+	def get(self, request, format = None):
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
 			data = reqeust_file(request.FILES['file'])

@@ -41,9 +41,15 @@ open(NEGATIVE, "< $negative");
 my @negatives = <NEGATIVE>;
 close(NEGATIVE);
 
+#print @positives;
+#print @negatives;
+
 # number of generated images from one image so that total will be $totalnum
 my $numfloor  = int($totalnum / $#positives);
 my $numremain = $totalnum - $numfloor * $#positives;
+
+print @totalnum;
+print @#positives;
 
 # Get the directory name of positives
 my $first = $positives[0];
