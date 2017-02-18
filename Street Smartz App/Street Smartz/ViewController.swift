@@ -51,13 +51,10 @@ class ViewController: UIViewController {
                     strongSelf.speechButton.isEnabled = true
                 case .denied:
                     strongSelf.speechButton.isEnabled = false
-                    strongSelf.speechButton.setTitle("User denied access to speech recognition", for: .disabled)
                 case .restricted:
                     strongSelf.speechButton.isEnabled = false
-                    strongSelf.speechButton.setTitle("Speech recognition restricted on this device", for: .disabled)
                 case .notDetermined:
                     strongSelf.speechButton.isEnabled = false
-                    strongSelf.speechButton.setTitle("Speech recognition not yet authorized", for: .disabled)
                 }
             }
         }
