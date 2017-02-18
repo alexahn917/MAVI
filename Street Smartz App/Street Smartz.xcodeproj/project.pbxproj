@@ -105,7 +105,7 @@
 				TargetAttributes = {
 					56E08E331E5828B000A8925C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8RGYHJQ88C;
+						DevelopmentTeam = N7BLV338BY;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -273,7 +273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8RGYHJQ88C;
+				DEVELOPMENT_TEAM = N7BLV338BY;
 				INFOPLIST_FILE = "Street Smartz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -287,7 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8RGYHJQ88C;
+				DEVELOPMENT_TEAM = N7BLV338BY;
 				INFOPLIST_FILE = "Street Smartz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -316,6 +316,7 @@
 				56E08E481E5828B100A8925C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

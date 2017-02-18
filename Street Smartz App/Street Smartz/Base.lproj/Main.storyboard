@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qhY-Zq-fKc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="f9w-gn-vrY">
-                                <rect key="frame" x="122" y="288.5" width="131" height="90"/>
+                                <rect key="frame" x="122" y="258.5" width="131" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3K-eB-yHH">
                                         <rect key="frame" x="0.0" y="0.0" width="131" height="30"/>
@@ -37,6 +37,13 @@
                                         <state key="normal" title="Speech Request"/>
                                         <connections>
                                             <action selector="speechRequestPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aBn-V9-TYC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGI-QR-l1H">
+                                        <rect key="frame" x="21" y="120" width="89" height="30"/>
+                                        <state key="normal" title="Speak To Me"/>
+                                        <connections>
+                                            <action selector="textToSpeechButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T7U-kp-ZBw"/>
                                         </connections>
                                     </button>
                                 </subviews>
