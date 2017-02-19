@@ -118,12 +118,12 @@ class CrosswalkViewController: UIViewController {
         
         
         //send to server
-        let imageData = [
+        let data = [
             "img": base64String,
             "tag": Tag.crosswalk
         ]
         
-        Alamofire.request(URL.uploadImage, method: .post, parameters: imageData).responseJSON { response in
+        Alamofire.request(URL.uploadImage, method: .post, parameters: data).responseJSON { response in
      
             if let json = response.result.value {
                print(json)

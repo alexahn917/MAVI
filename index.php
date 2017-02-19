@@ -4,7 +4,7 @@ if (!empty($_POST)) {
     
     // vars
     $base64 = $_POST["img"];
-    $tag = $_POST["tag"]
+    $tag = $_POST["tag"];
 
     // Write jpg
     $image = "data:image/png;base64, $base64";
@@ -27,5 +27,9 @@ if (!empty($_POST)) {
     }
 
     echo json_encode(array("result"=>$result));
+
 }
+
+    // echo json_encode(array("result"=>"hey"));
+
 
