@@ -1,9 +1,5 @@
 import sys
+import json
 from answer import ans
 
-def main():
-    print(1)
-
-
-if __name__ == '__main__':
-    main()
+print(1)
