@@ -9,12 +9,18 @@ app = Flask(__name__)
 def hello_world():
     lang = request.get_json(force=True, silent = True)
     img_data = lang['img']
+    tag = lang['tag']
     img_data = base64.b64decode(img_data)
     filename = 'images/input.jpg'
     with open(filename, 'wb') as f:
         f.write(img_data)
 
-    res = ans("walk", filename)
+
+    if tag == "crosswalk":
+        res = ans("walk", filename)
+    else:
+        res = ans("face", filename)
+
     return jsonify({"result": res})
 
 

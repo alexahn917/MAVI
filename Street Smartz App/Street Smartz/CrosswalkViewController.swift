@@ -182,7 +182,7 @@ class CrosswalkViewController: UIViewController {
 //                    
 //            }
         
-        let urlstring: String = "http:/172.20.10.4:8001/process-image"
+        let urlstring: String = "http:/172.20.10.4:8002/process-image"
         let myurl = URL(string: urlstring)
         var request = URLRequest(url:  myurl!)
         request.httpMethod = "POST"
@@ -203,15 +203,25 @@ class CrosswalkViewController: UIViewController {
                 
                 if let json = response.result.value {
                     let jsonRes = JSON(json)
-                    let res = jsonRes["result"].int
+                    
+                    if strongSelf.tag == .crosswalk {
+                        let res = jsonRes["result"].int
+                        guard res != nil else { return }
+                        switch res! {
+                        case 1: strongSelf.textLabel.text = "Safe to walk!"
+                        case 0: strongSelf.textLabel.text = "Don't walk!"
+                        case -1: strongSelf.textLabel.text = "Unable to find crosswalk!"
+                        default: break
+                        }
 
-                    guard res != nil else { return }
-                    switch res! {
-                    case 1: strongSelf.textLabel.text = "Safe to walk!"
-                    case 0: strongSelf.textLabel.text = "Don't walk!"
-                    case -1: strongSelf.textLabel.text = "Unable to find crosswalk!"
-                    default: break
+                    } else {
+                        let res = jsonRes["result"].string
+                        guard res != nil else { return }
+                        strongSelf.textLabel.text = res
                     }
+                    
+                    
+                    
                     
                 }
     
