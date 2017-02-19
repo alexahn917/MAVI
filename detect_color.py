@@ -39,11 +39,11 @@ def white_over_red(image):
 
     good_to_go = diff < 0
 
-    if good_to_go is True:
-        cv2.imshow("images", np.hstack([image, w_output]))
-    else:
-        cv2.imshow("images", np.hstack([image, r_output]))        
-    cv2.waitKey(0)
+#    if good_to_go is True:
+#        cv2.imshow("images", np.hstack([image, w_output]))
+#    else:
+#        cv2.imshow("images", np.hstack([image, r_output]))        
+#    cv2.waitKey(0)
 #    cv2.waitKey(0)
 
     return good_to_go

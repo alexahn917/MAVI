@@ -30,6 +30,9 @@ def ans(mode, image):
     elif mode == 'walk':
         return(may_walk(cv_img))
 
+    elif mode == 'text':
+        return(read_text(temp_img))
+
     else:
         print("Invalid function.")
         return(-1)
@@ -39,20 +42,33 @@ def detect_objects(content):
     image = vision_client.image(content=content)
     labels = image.detect_labels()
     print('Labels:')
+    message = "There are "
     for label in labels:
         print("object label: '%s' with the score of %f" % (label.description, label.score))
-        return labels
+        message += "label.description, "
+    return message
 
 def detect_faces(image):
     emotions = emotion_detection(open(image, "rb"))
     # print emotions
     print("There are in total %d many faces with:" %(len(emotions)))
+    message = "There are " + str(len(emotions)) + " people here with "
     emotion_counts = {}
     for emotion in emotions:
         emotion_counts.update({emotion:emotion_counts.get(emotion,0)+1})
     for emot, counts in emotion_counts.iteritems():
         print("%d %s faces" %(counts,emot))
-    return(emotions)
+        message += (str(counts) + " " + str(emot) + " faces;")
+    print(message)
+    return(message)
+
+def read_text(content):
+    image = vision_client.image(content=content)
+    texts = image.detect_text()
+    print('Texts:')
+    for text in texts:
+        print(text.description)
+    return(texts)
 
 def may_walk(cv_img):
     # crosswalk lights classifiers (cascades)
@@ -68,11 +84,11 @@ def may_walk(cv_img):
         for (x,y,w,h) in sign:
             cv2.rectangle(cv_img,(x,y),(x+w,y+h),(255,0,0),2)
             box = cv_img[y:y+h, x:x+w]
-            cv2.imshow('cv_img',cv_img)
-            cv2.waitKey(0)
+#            cv2.imshow('cv_img',cv_img)
+#            cv2.waitKey(0)
             if white_over_red(box) is False:
                 print("Not good to go.")
-                return(-1)
+                return(0)
     print("Good to go.")
     return(1)
 
