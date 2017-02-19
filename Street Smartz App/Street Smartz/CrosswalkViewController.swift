@@ -181,7 +181,7 @@ class CrosswalkViewController: UIViewController {
 //                    
 //            }
         
-        let urlstring: String = "http:/172.20.10.6:8000/process-image"
+        let urlstring: String = "http:/172.20.10.9:8000/process-image"
         let myurl = URL(string: urlstring)
         var request = URLRequest(url:  myurl!)
         request.httpMethod = "POST"
