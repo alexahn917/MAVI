@@ -17,7 +17,7 @@ enum DetectionType: String {
 }
 
 
-class CrosswalkViewController: UIViewController {
+class CrosswalkViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     
     
@@ -31,6 +31,13 @@ class CrosswalkViewController: UIViewController {
     
     struct Tag {
         static let crosswalk = "crosswalk"
+    }
+    
+    struct Sug {
+        static let nowalk = "Do not cross the street!"
+        static let yeswalk = "It's safe to cross the street!"
+        static let wherewalk = "There are no pedestrain lights near by, please take extra care!"
+        
     }
     
     // MARK - Outlets
@@ -116,6 +123,19 @@ class CrosswalkViewController: UIViewController {
         }
 
     }
+    
+    func textToSpeech(answer:String) {
+        print("textToSpeech")
+        let utterance = AVSpeechUtterance(string: answer)
+        utterance.rate = 0.55
+        
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.delegate = self
+        synthesizer.speak(utterance)
+        print("textToSpeech finished")
+        
+    }
+
     
     func uploadImage(image: UIImage?) {
         
@@ -208,8 +228,11 @@ class CrosswalkViewController: UIViewController {
                     guard res != nil else { return }
                     switch res! {
                     case 1: strongSelf.textLabel.text = "Safe to walk!"
+                        strongSelf.textToSpeech(answer: Sug.yeswalk)
                     case 0: strongSelf.textLabel.text = "Don't walk!"
+                        strongSelf.textToSpeech(answer: Sug.nowalk)
                     case -1: strongSelf.textLabel.text = "Unable to find crosswalk!"
+                        strongSelf.textToSpeech(answer: Sug.wherewalk)
                     default: break
                     }
                     
