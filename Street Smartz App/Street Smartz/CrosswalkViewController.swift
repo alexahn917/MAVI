@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Alamofire
+import SwiftyJSON
 
 enum DetectionType: String {
     case crosswalk
@@ -181,7 +182,7 @@ class CrosswalkViewController: UIViewController {
 //                    
 //            }
         
-        let urlstring: String = "http:/172.20.10.9:8000/process-image"
+        let urlstring: String = "http:/172.20.10.4:8001/process-image"
         let myurl = URL(string: urlstring)
         var request = URLRequest(url:  myurl!)
         request.httpMethod = "POST"
@@ -195,24 +196,27 @@ class CrosswalkViewController: UIViewController {
         request.httpBody = try! JSONSerialization.data(withJSONObject: values)
         
         Alamofire.request(request)
-            .responseJSON { response in
+            .responseJSON { [weak self]  response in
                 // do whatever you want here
-                switch response.result {
-                case .failure(let error):
-                    print(error)
-                    
-                    if let data = response.data, let responseString = String(data: data, encoding: .utf8) {
-                        print(responseString)
+                
+                guard let strongSelf = self else { return }
+                
+                if let json = response.result.value {
+                    let jsonRes = JSON(json)
+                    let res = jsonRes["result"].int
+
+                    guard res != nil else { return }
+                    switch res! {
+                    case 1: strongSelf.textLabel.text = "Safe to walk!"
+                    case 0: strongSelf.textLabel.text = "Don't walk!"
+                    case -1: strongSelf.textLabel.text = "Unable to find crosswalk!"
+                    default: break
                     }
-                case .success(let responseObject):
-                    print(responseObject)
+                    
                 }
-        }
     
-        
-        
-        
-        
+        }
+
     }
 }
 

@@ -7,5 +7,6 @@ target 'Street Smartz' do
 
   # Pods for Street Smartz
   pod 'Alamofire', '~> 4.3'
+  pod 'SwiftyJSON'
 
 end
