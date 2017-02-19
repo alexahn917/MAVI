@@ -21,31 +21,30 @@ def ans(mode, image):
     # read images
     cv_img = cv2.imread(image)
 
+
     # make face detection
     if mode == 'face':
-        faces = object_cascade.detectMultiScale(cv_img, 1.3, 5)
-        # no face detection
-        if len(faces) is 0:
-            print("No detection")
-            return(-1)
-        for (x,y,w,h) in faces:
-            cv2.rectangle(cv_img,(x,y),(x+w,y+h),(255,0,0),2)
-            box = cv_img[y:y+h, x:x+w]
-            cv2.imshow('cv_img',cv_img)
-            cv2.imwrite("test1.jpg", box)
-#            emotion = emotion_detection(open("test1.jpg", "rb"))[0]
-#            emotions.update({emotion: emotions.get(emotion, 0) + 1})
-
-#        cv2.waitKey(0)
-        # print emotions
-        print("There are in total %d many faces with:" %(len(faces)))
         emotions = emotion_detection(open(image, "rb"))
+        # print emotions
+        print("There are in total %d many faces with:" %(len(emotions)))
         emotion_counts = {}
         for emotion in emotions:
             emotion_counts.update({emotion:emotion_counts.get(emotion,0)+1})
         for emot, counts in emotion_counts.iteritems():
             print("%d %s faces" %(counts,emot))
-        return(len(faces))
+        return(len(emotions))
+
+    #        faces = object_cascade.detectMultiScale(cv_img, 1.3, 5)
+    #        # no face detection
+    #        if len(faces) is 0:
+    #            print("No detection")
+    #            return(-1)
+    #        for (x,y,w,h) in faces:
+    #            cv2.rectangle(cv_img,(x,y),(x+w,y+h),(255,0,0),2)
+    #            box = cv_img[y:y+h, x:x+w]
+    #            cv2.imshow('cv_img',cv_img)
+    #            cv2.imwrite("test1.jpg", box)
+    #        cv2.waitKey(0)
 
     # mode == 'walk'
     else: 
