@@ -10,7 +10,14 @@ import UIKit
 import AVFoundation
 import Alamofire
 
+enum DetectionType: String {
+    case crosswalk
+    case face
+}
+
+
 class CrosswalkViewController: UIViewController {
+    
     
     
     // MARK - Const
@@ -21,7 +28,12 @@ class CrosswalkViewController: UIViewController {
     }
     
     struct URL {
-        static let uploadImage = "http://127.0.0.1:8000/image/"
+//        static let uploadImage = "http://10.189.111.223:8888/"
+        static let uploadImage = "http://10.189.27.71:81/"
+    }
+    
+    struct Tag {
+        static let crosswalk = "crosswalk"
     }
     
     // MARK - Outlets
@@ -35,6 +47,7 @@ class CrosswalkViewController: UIViewController {
     // MARK - var
     /************************************************************/
     
+    var tag: DetectionType = .crosswalk
     var captureSession = AVCaptureSession()
     var sessionOutput = AVCapturePhotoOutput()
     var previewLayer = AVCaptureVideoPreviewLayer()
@@ -58,6 +71,9 @@ class CrosswalkViewController: UIViewController {
     
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        print(tag.rawValue)
+        
         super.viewWillAppear(animated)
         displayImagePreview()
         
@@ -106,24 +122,31 @@ class CrosswalkViewController: UIViewController {
     
     func uploadImage(image: UIImage?) {
         
-//        let str = "Hello, playground"
-//        guard let base64Str = str.base64Encoded() else { return }
-
-        guard let image = image else { return }
-        guard let imageData = UIImagePNGRepresentation(image) else { return }
-//        Alamofire.upload(imageData, to: "http://httpbin.org/post").responseJSON { response in
-//            debugPrint(response)
-//        }
-        Alamofire.request("127.0.0.1:8002/image/").responseJSON { response in
+        //compress
+        guard let image = image else { print("image not found"); return; }
+        let jpegCompressionQuality: CGFloat = 0.9 // Set this to whatever suits your purpose
+        guard let base64String = UIImageJPEGRepresentation(image, jpegCompressionQuality)?.base64EncodedString() else { print("jpg->base64 failure"); return; }
+        
+        
+        //send to server
+        let imgData = [
+            "img": base64String,
+            "tag": tag.rawValue
+        ]
+        
+        
+        Alamofire.request(URL.uploadImage, method: .post, parameters: imgData).responseJSON { response in
+     
             print(response.request)  // original URL request
             print(response.response) // HTTP URL response
             print(response.data)     // server data
-            print(response.result)   // result of response serialization
+            print(response.result)
             
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+            if let json = response.result.value {
+               print(json)
             }
         }
+
        
     }
 }
@@ -136,19 +159,19 @@ extension CrosswalkViewController: AVCapturePhotoCaptureDelegate {
         if let sampleBuffer = photoSampleBuffer, let previewBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
             
             //animate flash 
-            if let wnd = self.view {
-
-                let v = UIView(frame: wnd.bounds)
-                v.backgroundColor = UIColor.white
-                v.alpha = 1
-                
-                wnd.addSubview(v)
-                UIView.animate(withDuration: 1, animations: { 
-                    v.alpha = 0
-                }, completion: {(finished:Bool) in
-                    v.removeFromSuperview()
-                })
-            }
+//            if let wnd = self.view {
+//
+//                let v = UIView(frame: wnd.bounds)
+//                v.backgroundColor = UIColor.white
+//                v.alpha = 1
+//                
+//                wnd.addSubview(v)
+//                UIView.animate(withDuration: 1, animations: { 
+//                    v.alpha = 0
+//                }, completion: {(finished:Bool) in
+//                    v.removeFromSuperview()
+//                })
+//            }
             
             capturedImage.isHidden = false
             capturedImage.image = UIImage(data: dataImage)

@@ -45,7 +45,8 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     // MARK - Var
     /************************************************************/
-
+    
+    fileprivate var tag: DetectionType?
     fileprivate var speechEnabled = false
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -205,9 +206,21 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func parseSpeech(str: String?) {
         if (str?.range(of: "cross") != nil && str?.range(of: "street") != nil) {
+            tag = .crosswalk
+            performSegue(withIdentifier: Storyboard.showCrosswalk, sender: self)
+        } else if str?.range(of: "people") != nil {
+            tag = .face
             performSegue(withIdentifier: Storyboard.showCrosswalk, sender: self)
         }
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Storyboard.showCrosswalk {
+            if let destinationVC = segue.destination as? CrosswalkViewController {
+                destinationVC.tag = tag ?? .crosswalk
+            }
+        }
     }
 
 }

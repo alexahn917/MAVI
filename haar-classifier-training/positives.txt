@@ -1,0 +1,25 @@
+./positive_images/$_1 (1).JPG
+./positive_images/$_1.JPG
+./positive_images/$T2eC16ZHJGYE9noojedPBR2ccKLW,!--60_1.JPG
+./positive_images/17zy9eol6xvjsjpg.jpg
+./positive_images/814465_don_t_walk_new_york_traffic_light_pedestrian_stop_sign.jpg
+./positive_images/920x920.jpg
+./positive_images/art4.jpg
+./positive_images/city-50752_640.jpg
+./positive_images/cnt4.jpg
+./positive_images/crossing-signal-2077797_960_720.jpg
+./positive_images/crosswalk-hand-620x349-1.jpg
+./positive_images/crosswalk-stop-light620.jpg
+./positive_images/don-t-walk-traffic-light-2128367.jpg
+./positive_images/don-t-walk-traffic-light-5800041.jpg
+./positive_images/dontwalk.jpg
+./positive_images/hand_dont_cross1363118873717.jpg
+./positive_images/hqdefault.jpg
+./positive_images/pos1.jpg
+./positive_images/pos2.jpg
+./positive_images/pos5.jpg
+./positive_images/pos6.jpg
+./positive_images/pst011607-newcrosswalks3_20006826.jpg
+./positive_images/traffic-dontwalk.jpg
+./positive_images/traffic-lights-and-red-hand-stop-signal-and-use-crosswalk-signs-intersection-AG10G0.jpg
+./positive_images/tumblr_inline_mm2wesT0Dp1qz4rgp.jpg
