@@ -1,11 +1,14 @@
 <?php
 
-
-$img = array();
 if (!empty($_POST)) {
     $base64 = $_POST["img"];
 
-    $arr = array('base64' => $base64);
-    echo json_encode($arr);
+    // save to file
+    $myfile = fopen("images/encoded_crosswalk.txt", "wb") or die("Unable to open file!");
+    fwrite($myfile, $base64);
+    fclose($myfile);
 
+    $result = exec("python process_img.py");
+    echo json_encode(array("result"=>$result));
 }
+

@@ -107,17 +107,20 @@ class CrosswalkViewController: UIViewController {
     func uploadImage(image: UIImage?) {
         
         //compress
-        guard let image = image else { return }
+        guard let image = image else { print("image not found"); return; }
         let jpegCompressionQuality: CGFloat = 0.9 // Set this to whatever suits your purpose
-        guard let base64String = UIImageJPEGRepresentation(image, jpegCompressionQuality)?.base64EncodedString() else { return }
+        guard let base64String = UIImageJPEGRepresentation(image, jpegCompressionQuality)?.base64EncodedString() else { print("jpg->base64 failure"); return; }
+        
         
         //send to server
         let imageData = ["img": base64String]
         Alamofire.request("http://10.189.27.71:81/", method: .post, parameters: imageData).responseJSON { response in
-                
-                if let json = response.result.value {
-                   print(json)
-                }
+            
+            print("requested")
+     
+            if let json = response.result.value {
+               print(json)
+            }
         }
 
        
@@ -132,19 +135,19 @@ extension CrosswalkViewController: AVCapturePhotoCaptureDelegate {
         if let sampleBuffer = photoSampleBuffer, let previewBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
             
             //animate flash 
-            if let wnd = self.view {
-
-                let v = UIView(frame: wnd.bounds)
-                v.backgroundColor = UIColor.white
-                v.alpha = 1
-                
-                wnd.addSubview(v)
-                UIView.animate(withDuration: 1, animations: { 
-                    v.alpha = 0
-                }, completion: {(finished:Bool) in
-                    v.removeFromSuperview()
-                })
-            }
+//            if let wnd = self.view {
+//
+//                let v = UIView(frame: wnd.bounds)
+//                v.backgroundColor = UIColor.white
+//                v.alpha = 1
+//                
+//                wnd.addSubview(v)
+//                UIView.animate(withDuration: 1, animations: { 
+//                    v.alpha = 0
+//                }, completion: {(finished:Bool) in
+//                    v.removeFromSuperview()
+//                })
+//            }
             
             capturedImage.isHidden = false
             capturedImage.image = UIImage(data: dataImage)
