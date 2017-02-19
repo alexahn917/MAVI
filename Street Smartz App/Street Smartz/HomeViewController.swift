@@ -71,6 +71,12 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
         textToSpeech(answer: Text.voicedeflt)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        textLabel.text = Text.listening
+    }
+    
+    
+    
     
     // MARK - func
     /************************************************************/

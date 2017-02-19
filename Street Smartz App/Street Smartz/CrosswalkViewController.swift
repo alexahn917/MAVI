@@ -81,6 +81,19 @@ class CrosswalkViewController: UIViewController {
 
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        view.addGestureRecognizer(tapGesture)
+        
+
+    }
+    
+    func tapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func displayImagePreview() {
         let deviceSession = AVCaptureDeviceDiscoverySession(
             deviceTypes: [.builtInDuoCamera, .builtInTelephotoCamera, .builtInWideAngleCamera],
@@ -182,7 +195,7 @@ class CrosswalkViewController: UIViewController {
 //                    
 //            }
         
-        let urlstring: String = "http:/172.20.10.4:8002/process-image"
+        let urlstring: String = "http:/172.20.10.4:8004/process-image"
         let myurl = URL(string: urlstring)
         var request = URLRequest(url:  myurl!)
         request.httpMethod = "POST"
