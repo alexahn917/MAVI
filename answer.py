@@ -44,7 +44,6 @@ def answer(mode, image):
 	    print("Number of faces: %d" %(len(objects)))
 	#        return len(objects)
 
-
     cv2.imshow('cv_img',cv_img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
