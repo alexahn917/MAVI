@@ -239,7 +239,6 @@ class CrosswalkViewController: UIViewController, AVSpeechSynthesizerDelegate {
                     
                     if strongSelf.tag == .crosswalk {
                         let res = jsonRes["result"].int
-                    
                     guard res != nil else { return }
                     switch res! {
                     case 1: strongSelf.textLabel.text = "Safe to walk!"
