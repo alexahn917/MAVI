@@ -30,6 +30,10 @@ def ans(mode, image):
     elif mode == 'walk':
         return(may_walk(cv_img))
 
+    else:
+        print("Invalid function.")
+        return(-1)
+
 def detect_objects(content):
     vision_client = vision.Client()
     image = vision_client.image(content=content)
