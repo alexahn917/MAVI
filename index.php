@@ -14,19 +14,19 @@ if (!empty($_POST)) {
 
     // router
     $result = NULL;
-    switch ($tag) {
-
-        case "crosswalk":
-            $result = exec("python3 answer.py walk images/input.jpg");
-            break;
-
-        case "face":
-            $result = exec("python3 answer.py face images/input.jpg");
-            break;
-
-        default: break;
-    }
-
+    // switch ($tag) {
+    //
+    //     case "crosswalk":
+    //         $result = exec("python3 answer.py walk images/input.jpg");
+    //         break;
+    //
+    //     case "face":
+    //         $result = exec("python3 answer.py face images/input.jpg");
+    //         break;
+    //
+    //     default: break;
+    // }
+    $result = exec("python3 answer.py walk images/input.jpg");
     echo json_encode(array("result"=>$result));
 
 }

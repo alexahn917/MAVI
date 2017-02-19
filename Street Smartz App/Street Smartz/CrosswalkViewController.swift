@@ -26,11 +26,7 @@ class CrosswalkViewController: UIViewController {
     struct Text {
         static let processing = "Processing image..."
     }
-    
-    struct URL {
-//        static let uploadImage = "http://10.189.111.223:8888/"
-        static let uploadImage = "http://10.189.27.71:81/"
-    }
+
     
     struct Tag {
         static let crosswalk = "crosswalk"
@@ -129,25 +125,94 @@ class CrosswalkViewController: UIViewController {
         
         
         //send to server
-        let imgData = [
+        let imgData: [String: Any] = [
+//            "img": base64String,
+//            "tag": tag.rawValue
+            "name": 3
+        ]
+        
+//        print("TAG: \(tag.rawValue)")
+//        Alamofire.request(URL.uploadImage, method: .post, parameters: imgData).responseJSON { response in
+//        Alamofire.request(URL.uploadImage, method: .post, parameters: imgData).responseJSON { response in
+//     
+//            print(response.request)  // original URL request
+//            print(response.response) // HTTP URL response
+//            print(response.data)     // server data
+//            print(response.result)
+//            
+//            if let json = response.result.value {
+//               print(json)
+//            }
+//        }
+        
+//            Alamofire.request(URL.uploadImage, method: .get).responseJSON { response in
+//    
+//                print(response.request)  // original URL request
+//                print(response.response) // HTTP URL response
+//                print(response.data)     // server data
+//                print(response.result)
+//    
+//                if let json = response.result.value {
+//                   print(json)
+//                }
+//            }
+        
+//            let params:NSMutableDictionary? = ["foo": "bar"];
+//            let ulr =  NSURL(string:URL.uploadImage)
+//            let request = NSMutableURLRequest(url: ulr)
+//            request.httpMethod = "POST"
+//            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//            let data = try! JSONSerialization.data(withJSONObject: params!, options: JSONSerialization.WritingOptions.prettyPrinted)
+//            
+//            let json = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+//            if let json = json {
+//                print(json)
+//            }
+//            request.httpBody = json!.data(using: String.Encoding.utf8.rawValue);
+//            
+//            
+//            Alamofire.request(request as! URLRequestConvertible)
+//                .responseJSON { response in
+//                    // do whatever you want here
+//                    print(response.request)
+//                    print(response.response)
+//                    print(response.data)
+//                    print(response.result)
+//                    
+//            }
+        
+        let urlstring: String = "http:/172.20.10.6:8000/process-image"
+        let myurl = URL(string: urlstring)
+        var request = URLRequest(url:  myurl!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let values = [
             "img": base64String,
             "tag": tag.rawValue
         ]
         
+        request.httpBody = try! JSONSerialization.data(withJSONObject: values)
         
-        Alamofire.request(URL.uploadImage, method: .post, parameters: imgData).responseJSON { response in
-     
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)
-            
-            if let json = response.result.value {
-               print(json)
-            }
+        Alamofire.request(request)
+            .responseJSON { response in
+                // do whatever you want here
+                switch response.result {
+                case .failure(let error):
+                    print(error)
+                    
+                    if let data = response.data, let responseString = String(data: data, encoding: .utf8) {
+                        print(responseString)
+                    }
+                case .success(let responseObject):
+                    print(responseObject)
+                }
         }
-
-       
+    
+        
+        
+        
+        
     }
 }
 
