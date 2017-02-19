@@ -14,12 +14,8 @@ def hello_world():
     with open(filename, 'wb') as f:
         f.write(img_data)
 
-    ans("walk", filename)
-
-
-
-
-    return jsonify({"name": "yes"})
+    res = ans("walk", filename)
+    return jsonify({"result": res})
 
 
 # @app.route("/process-image")
