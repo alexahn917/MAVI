@@ -29,19 +29,21 @@ def white_over_red(image):
     w_output = cv2.bitwise_and(image, image, mask = w_mask)
 
     # show the images
-    print("Total pixels: ", np.sum(image))
+#    print("Total pixels: ", np.sum(image))
     reds = int(np.sum(r_output))
     whites = int(np.sum(w_output))
     diff = reds - whites
     print("Red pixels:", reds)
     print("White pixels:", whites)
-    print("Red - White:", diff)
+    print("Good to go:", diff < 0)
 
-    is_good = True if reds > (whites * 10) else False
-    if is_good:
+    good_to_go = diff < 0
+
+    if good_to_go is True:
         cv2.imshow("images", np.hstack([image, w_output]))
     else:
         cv2.imshow("images", np.hstack([image, r_output]))        
+    cv2.waitKey(0)
 #    cv2.waitKey(0)
 
-    return is_good
+    return good_to_go

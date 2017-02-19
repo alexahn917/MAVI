@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smartstreet-159205",
+  "private_key_id": "7a2c5dc12527655dba06f26b4c9be0261356555e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDPZWxW5L1u/+wR\nQ0rhnkI1H+jFZbxdiAuht7BSaUi8YSUDkcUGTJ1C8SKYN8wTFvCeS6YMEgbXixe8\nz+DbwGvR+gENeJWOI5DcZ4lyVm1v5mHTeQBOROL49JIrMuVfzreW9H6n+fjggYPG\n59hlFH8ASaPkRj4qzxA2aVOcsCu5N5iqJqZLym5wT/vq3FVjq9gH4a4Wd1+Xa4XC\nfM3N8pWG/U+2ujObLwjLoMuPT87Mz9p7cO5TPEcF5LKZ+kBJbdCP4jCVsG051RIq\nsq6WK5X14g1m1dL6So3DwEo6wjie5JZrTLiE0HVBh25R78naVfoDDlK3IZnmoS1q\n2d00LdqNAgMBAAECggEAMcgjmDvxqJovnPktGTj2pW/SXMeNzlmgiSHhZfa1qdob\nm167D0cGnJHq/uStzIs+GJEJ+228TLKrcPvo+naWquE6rXQbWfH5jJ4hpNtQC4Me\nSjeKNj9cx+tUxp/B5RxmfwqS+FkNPz53ViBClgi0b2o9t8aQl4/6UUU496xl4mAi\nDqH8q13UIo/sI35LXDBFDAdZmCgHhfc72LoREhoFx7gYF+xT5sm9cSU/u4wHjIv9\nlCPOuwGHXjwhttmD9Nt2+k4wOF9jyFviy5tF45+364x0BMpKBJoLUa1iE6wXluD/\nF6WTR7B5zoHpntcDaup5/QVvNFtkNAFwtB9dii9V4QKBgQD4D4eBId6j9w8Hj3y8\nVedWmGizsqRvKdS52WNUzoKG1MnrXptU4KCvs4qj1kWVwxVEXupxuyHwILT9LddR\n2nliqh4ZxJ2gBi5SPZcSjP/g0xxq+Wn2svMqRutQw9JMCZaHvlxR7kc0i2UJA2bP\nDWttq0XPBqfqlpF94gWYW/TgxQKBgQDWCLY7hJbmT7j6KOsQo/7HDI4fpfMiMV1J\n5sHsiaGxnYTgfsehT27KLmLrct8+H0yCe7xjEFxOeClQYUMPAdEzGtCxTyKVnYAQ\nmkpW15dp5gyUAUtl0y3svmMH3adGSKWPmc6FMcH5d0YlkS5yCcwmk3OgrRB/2jrd\nQQ+896YfKQKBgEIUUPJzRU3EWHqZHI9HCvMkcm+8HNWH/STs5esHf/nO4WMTtqkr\nlWJ4n2v5flvgtd+asTVOtkGzVMNE3ODvI/rGenI+0AZ63wgFZCMK8HbBhgZxHmsb\nTG9sqO7A21pqC3FpokopAUrb/zQhddeeKYnzYAtAKKbzKRqxhPALPvZJAoGAUIhY\noQ5jhOcMT7wjrlA2ZgjYVRoo4H24fzz/TJQArgb530p0rMJpilNnzvWbABHgxNvv\n50pZoQDfcqoWBEiHwXXefkirV6Y6cITNYd2e0C7KHspZ50dNaV29f1EsRmrBOMYD\nieRN+yKg1zPISQpcsUsb36Ieqiyfp256kHySGfkCgYBDm/8wN9D11fYIpHTWRzHz\nQuGZHZopbcuX/PbqDpgowF2tc8ED6rSZHuhcNHafiSGKf7IJDFbN9MFiMbFPtJWW\nKra9ahF104cufVpKIsmZKKkHx5QjLbjc81VfRV1naOJplFl6h8nA95aiHTiu/39N\nsBDiSUIXDpFnM5xzzfAeSw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "smartstreet@smartstreet-159205.iam.gserviceaccount.com",
+  "client_id": "110810409401910785013",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/smartstreet%40smartstreet-159205.iam.gserviceaccount.com"
+}
