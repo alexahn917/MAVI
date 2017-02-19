@@ -28,8 +28,8 @@ class CrosswalkViewController: UIViewController {
     }
     
     struct URL {
-        static let uploadImage = "http://10.189.111.223:8888/"
-//        static let uploadImage = "http://10.189.27.71:81/"
+//        static let uploadImage = "http://10.189.111.223:8888/"
+        static let uploadImage = "http://10.189.27.71:81/"
     }
     
     struct Tag {
@@ -129,14 +129,13 @@ class CrosswalkViewController: UIViewController {
         
         
         //send to server
-        let data = [
+        let imgData = [
             "img": base64String,
             "tag": tag.rawValue
         ]
         
-        print("here")
         
-        Alamofire.request(URL.uploadImage, method: .post, parameters: data).responseJSON { response in
+        Alamofire.request(URL.uploadImage, method: .post, parameters: imgData).responseJSON { response in
      
             print(response.request)  // original URL request
             print(response.response) // HTTP URL response
