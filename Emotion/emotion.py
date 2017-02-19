@@ -40,16 +40,18 @@ def emotion_detection(img_data):
 				add = True
 		max_index = score_list.index(max(score_list))
 		max_emotion = category[max_index]
-		print(max_emotion.replace('"', ""))
+		return(str(max_emotion.replace('"', "")))
 		conn.close()
 	except Exception as e:
 		print("[Errno {0}] {1}".format(e.errno, e.strerror))
+		return("")
 
 ####################################
-
+'''
 def main():
 	img_data = open(sys.argv[1], 'rb')
 	emotion_detection(img_data)
 
 if __name__ == '__main__':
 	main()
+'''

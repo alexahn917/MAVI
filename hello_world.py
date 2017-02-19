@@ -1,5 +1,5 @@
 import sys
 import json
-from answer import ans
+import answer
 
-print(1)
+print(json.dumps(1))

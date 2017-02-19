@@ -2,7 +2,6 @@ import httplib, urllib, base64
 import sys
 import re
 import base64
-from PIL import Image
 import numpy as np
 
 def emotion_detection(img_data):
@@ -13,6 +12,7 @@ def emotion_detection(img_data):
 	}
 
 	params = urllib.urlencode({
+
 	})
 
 	# try:
@@ -43,16 +43,17 @@ def emotion_detection(img_data):
 		max_index = score_list.index(max(score_list))
 		max_emotion = category[max_index]
 		result.append(max_emotion.replace('"', ""))
-	print result
+	return result
 	conn.close()
 	# except Exception as e:
 	# 	print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
 ####################################
-
+'''
 def main():
 	img_data = open(sys.argv[1], 'rb')
 	emotion_detection(img_data)
 
 if __name__ == '__main__':
 	main()
+'''

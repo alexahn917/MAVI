@@ -16,17 +16,19 @@ if (!empty($_POST)) {
     switch ($tag) {
 
         case "crosswalk":
-            $result = shell_exec("python /Users/alex/Documents/GitHub/StreetSmart/hello_world.py");
+            $result = exec('python3 hi_world.py');
+#            $result = exec("ls")
+#            $result = shell_exec("python /Users/alex/Documents/GitHub/StreetSmart/hello_world.py");
 #            $result = exec("python answer.py walk images/input.jpg");
             break;
 
         case "face":
-            $result = shell_exec("python answer.py face images/input.jpg");
+            $result = shell_exec('python answer.py face images/input.jpg');
             break;
 
         default: break;
     }
-    
-    echo json_encode(array("result"=>$result));
+
+    echo json_encode(array($result));
 
 }

@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import sys
 from detect_color import white_over_red
+from emotion import emotion_detection
 
 def main():
     mode = sys.argv[1]
@@ -31,8 +32,19 @@ def ans(mode, image):
             cv2.rectangle(cv_img,(x,y),(x+w,y+h),(255,0,0),2)
             box = cv_img[y:y+h, x:x+w]
             cv2.imshow('cv_img',cv_img)
-        cv2.waitKey(0)
-        print("Number of faces: %d" %(len(faces)))
+            cv2.imwrite("test1.jpg", box)
+#            emotion = emotion_detection(open("test1.jpg", "rb"))[0]
+#            emotions.update({emotion: emotions.get(emotion, 0) + 1})
+
+#        cv2.waitKey(0)
+        # print emotions
+        print("There are in total %d many faces with:" %(len(faces)))
+        emotions = emotion_detection(open(image, "rb"))
+        emotion_counts = {}
+        for emotion in emotions:
+            emotion_counts.update({emotion:emotion_counts.get(emotion,0)+1})
+        for emot, counts in emotion_counts.iteritems():
+            print("%d %s faces" %(counts,emot))
         return(len(faces))
 
     # mode == 'walk'
