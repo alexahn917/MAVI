@@ -1,14 +1,31 @@
 <?php
 
 if (!empty($_POST)) {
+    
+    // vars
     $base64 = $_POST["img"];
+    $tag = $_POST["tag"]
 
-    // save to file
-    $myfile = fopen("images/encoded_crosswalk.txt", "wb") or die("Unable to open file!");
-    fwrite($myfile, $base64);
-    fclose($myfile);
+    // Write jpg
+    $image = "data:image/png;base64, $base64";
+    $image = imagecreatefrompng($image);
+    imagejpeg($image, 'images/input.jpg', 100);
+    imagedestroy($image);
 
-    $result = exec("python process_img.py");
+    //router 
+    $result = NULL;
+    switch ($tag) {
+        
+        case "crosswalk":
+            $result = exec("python3 answer.py walk images/input.jpg");
+            break;
+        case "face":
+            $result = exec("python3 answer.py face images/input.jpg");
+            break;
+        
+        default: break;
+    }
+
     echo json_encode(array("result"=>$result));
 }
 

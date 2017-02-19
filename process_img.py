@@ -10,7 +10,7 @@ def show_img(string_img):
     print 'Success'
 
 def main():
-    with open('images/encoded_crosswalk.txt', 'r') as myfile:
+    with open('images/in.txt', 'r') as myfile:
         data = myfile.read().replace('\n', '')
         show_img(data)
 
