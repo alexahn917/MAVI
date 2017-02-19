@@ -26,7 +26,7 @@ if (!empty($_POST)) {
         default: break;
     }
 
-    echo json_encode(array("result"=>$result));
+    echo json_encode(array("result"=>$tag));
 
 }
 

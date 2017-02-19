@@ -10,7 +10,14 @@ import UIKit
 import AVFoundation
 import Alamofire
 
+enum DetectionType: String {
+    case crosswalk
+    case face
+}
+
+
 class CrosswalkViewController: UIViewController {
+    
     
     
     // MARK - Const
@@ -40,6 +47,7 @@ class CrosswalkViewController: UIViewController {
     // MARK - var
     /************************************************************/
     
+    var tag: DetectionType = .crosswalk
     var captureSession = AVCaptureSession()
     var sessionOutput = AVCapturePhotoOutput()
     var previewLayer = AVCaptureVideoPreviewLayer()
@@ -63,6 +71,9 @@ class CrosswalkViewController: UIViewController {
     
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        print(tag.rawValue)
+        
         super.viewWillAppear(animated)
         displayImagePreview()
         
@@ -120,11 +131,18 @@ class CrosswalkViewController: UIViewController {
         //send to server
         let data = [
             "img": base64String,
-            "tag": Tag.crosswalk
+            "tag": tag.rawValue
         ]
+        
+        print("here")
         
         Alamofire.request(URL.uploadImage, method: .post, parameters: data).responseJSON { response in
      
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)
+            
             if let json = response.result.value {
                print(json)
             }
