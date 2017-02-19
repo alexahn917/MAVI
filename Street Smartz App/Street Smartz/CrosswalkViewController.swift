@@ -88,6 +88,19 @@ class CrosswalkViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        view.addGestureRecognizer(tapGesture)
+        
+
+    }
+    
+    func tapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func displayImagePreview() {
         let deviceSession = AVCaptureDeviceDiscoverySession(
             deviceTypes: [.builtInDuoCamera, .builtInTelephotoCamera, .builtInWideAngleCamera],
@@ -202,7 +215,7 @@ class CrosswalkViewController: UIViewController, AVSpeechSynthesizerDelegate {
 //                    
 //            }
         
-        let urlstring: String = "http:/172.20.10.4:8001/process-image"
+        let urlstring: String = "http:/172.20.10.4:8004/process-image"
         let myurl = URL(string: urlstring)
         var request = URLRequest(url:  myurl!)
         request.httpMethod = "POST"
@@ -223,8 +236,10 @@ class CrosswalkViewController: UIViewController, AVSpeechSynthesizerDelegate {
                 
                 if let json = response.result.value {
                     let jsonRes = JSON(json)
-                    let res = jsonRes["result"].int
-
+                    
+                    if strongSelf.tag == .crosswalk {
+                        let res = jsonRes["result"].int
+                    
                     guard res != nil else { return }
                     switch res! {
                     case 1: strongSelf.textLabel.text = "Safe to walk!"
@@ -233,8 +248,15 @@ class CrosswalkViewController: UIViewController, AVSpeechSynthesizerDelegate {
                         strongSelf.textToSpeech(answer: Sug.nowalk)
                     case -1: strongSelf.textLabel.text = "Unable to find crosswalk!"
                         strongSelf.textToSpeech(answer: Sug.wherewalk)
-                    default: break
+                    default: break }
+                    } else {
+                        let res = jsonRes["result"].string
+                        guard res != nil else { return }
+                        strongSelf.textLabel.text = res
                     }
+                    
+                    
+                    
                     
                 }
     

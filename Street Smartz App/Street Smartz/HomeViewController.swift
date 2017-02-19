@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
         static let deflt = "Hey there"
         static let listening = "What's up?"
         static let voiceListening = "I am listening"
-        static let voicedeflt = "Hey there, Frank here"
+        static let voicedeflt = "Hey there, Mavi here, what can I help you with?"
         
     }
     
@@ -70,6 +70,12 @@ class HomeViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         textToSpeech(answer: Text.voicedeflt)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        textLabel.text = Text.listening
+    }
+    
+    
     
     
     // MARK - func
