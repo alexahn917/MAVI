@@ -27,7 +27,8 @@ if (!empty($_POST)) {
         default: break;
     }
 
-    echo json_encode(array("result"=>$result));
+    $ans = file_get_contents("return_answer.txt", true);
+    echo json_encode(array("result" => $ans));
 
 }
 
