@@ -1,7 +1,6 @@
 <?php
 
 if (!empty($_POST)) {
-
     // vars
     $base64 = $_POST["img"];
     $tag = $_POST["tag"];
@@ -17,19 +16,15 @@ if (!empty($_POST)) {
     switch ($tag) {
 
         case "crosswalk":
-            $result = exec("python3 answer.py walk images/input.jpg");
+            $result = exec("python answer.py walk images/input.jpg");
             break;
 
         case "face":
-            $result = exec("python3 answer.py face images/input.jpg");
+            $result = exec("python answer.py face images/input.jpg");
             break;
 
         default: break;
     }
 
-    $ans = file_get_contents("return_answer.txt", true);
-    echo json_encode(array("result" => $ans));
-
+     echo json_encode(array("result"=>$result));
 }
-
-    // echo json_encode(array("result"=>"hey"));

@@ -1,5 +1,5 @@
 import sys
-
+from answer import ans
 
 def main():
     print(1)
