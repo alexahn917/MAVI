@@ -26,3 +26,5 @@ MAVI is a very powerful and potentially very impactful application. The first st
 
 ## Built With
 `swift`, `python`, `objective-c`, `php`, `google-cloud-vision`, `opencv`, `machine-learning`, `ios`, `amazon-web-services`, `microsoft-cognitive-services`, `computer-vision`, `speech-recognition`
+
+[LINK to DevPost](https://devpost.com/software/streetsmart-vc6hrf)
